@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
-  width: 100%; /* Updated by Bhavesh */ 
+  width: 100%;  /*Updated by Bhavesh  */
 }
 #maincontent {
   background-color: #f3f3f3;
@@ -127,7 +127,7 @@ nav h1 a {
   height: 100%;
   background-color: #3397DB;
   align-items: center;
-  padding: 15px;
+  padding: 15px 0px;
 }
 .filter-options h2 {
   color: white;
@@ -213,20 +213,17 @@ nav h1 a {
 
 
 /* ====================== Restaurant Details ====================== */
-.inside header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
-.inside #map-container {
-  background: blue none repeat scroll 0 0;
-  height: 87%;
-  position: fixed;
-  right: 0;
-  top: 80px;
-  width: 50%;
-}
+
+
+/*.inside #map-container {
+    background: blue none repeat scroll 0 0;
+    height: 50%;
+    position: relative;
+    right: 0;
+    top: 80px;
+    width: 100%;
+  }*/
+
 .inside #map {
   background-color: #ccc;
   height: 100%;
@@ -306,7 +303,7 @@ nav h1 a {
 }
 
 #reviews-list li p:nth-child(1) {
-  width: 45%;
+  max-width: 45%;
   font-size: 1.2em;
   display: inline-block;
   line-height: 1;
@@ -314,13 +311,12 @@ nav h1 a {
 }
 
 #reviews-list li p:nth-child(2) {
-  width: 45%;
+  max-width: 45%;
   display: inline-block;
   font-size: 0.9em;
   text-align: right;
   line-height: 1;
-  /*background-color: #333333;
-  color: #fff;*/
+  
 }
 
 #reviews-list li p:nth-child(3){
@@ -335,24 +331,24 @@ nav h1 a {
   color: #666;
 }
 
-@media screen and (max-width: 800px) {
-  /*.inside {
+@media screen and (max-width: 799px) {
+  .inside {
     display: flex;
-    flex-direction: column;
-  }*/
-  .inside #map-container {
-    /*background: blue none repeat scroll 0 0;*/
-    /*height: 87%;*/
-    /*position: fixed;*/
-    /*right: 0;*/
-    /*position: relative;
-    top: 80px;*/
+    flex-flow: row wrap;
     width: 100%;
-    height: 45%;    
+  }
+  .inside header {
+    width: 100%;
+  } 
+  .inside #map-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
   }
 
   #breadcrumb {
-    width: 100%;
+    /*width: 89%;*/
+    width: calc(100% - 80px);
     position: relative;
   }
 
@@ -370,6 +366,30 @@ nav h1 a {
     width: 100%;
     box-sizing: border-box;
     position: static;
+  }
+}
+
+@media screen and (min-width: 800px){
+  .inside header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .inside #map-container {
+    background: blue none repeat scroll 0 0;
+    /*height: 88%;*/
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 80px;
+    width: 50%;
+  }
+
+  #breadcrumb {
+    width: calc(50% - 80px);
+    /*width: 50%;*/
   }
 }
 
