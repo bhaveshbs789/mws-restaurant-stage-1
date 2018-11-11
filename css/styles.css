@@ -105,11 +105,22 @@ nav h1 a {
     text-decoration: underline;
 }
 /* ====================== Map ====================== */
-#map {
-  height: 400px;
-  width: 100%;
-  background-color: #ccc;
+@media only screen and (min-width: 500px) {
+    #map {
+      height: 400px;
+      width: 100%;
+      background-color: #ccc;
+    }
 }
+
+@media only screen and (max-width: 500px) {
+    #map {
+      height: 300px;
+      width: 100%;
+      background-color: #ccc;
+    }
+}
+
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
@@ -146,7 +157,7 @@ nav h1 a {
   text-align: center;
   /*Updated flex*/
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 #restaurants-list li {
   background-color: #fff;
@@ -159,7 +170,7 @@ nav h1 a {
   text-align: left;
   /*width: 270px;*/
   /* Below 2 updated by Bhavesh */
-  max-width:450px;
+  max-width:300px;
   width:80%;
 }
 #restaurants-list .restaurant-img {
