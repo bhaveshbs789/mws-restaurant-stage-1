@@ -34,6 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
+  width: 100%; /* Updated by Bhavesh */ 
 }
 #maincontent {
   background-color: #f3f3f3;
@@ -106,9 +107,10 @@ nav h1 a {
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
-  height: 50px;
+  height: 100%;
   background-color: #3397DB;
   align-items: center;
+  padding: 15px;
 }
 .filter-options h2 {
   color: white;
@@ -136,16 +138,23 @@ nav h1 a {
   margin: 0;
   padding: 30px 15px 60px;
   text-align: center;
+  /*Updated flex*/
+  display: flex;
+  flex-direction: column;
 }
 #restaurants-list li {
   background-color: #fff;
   border: 2px solid #ccc;
   font-family: Arial,sans-serif;
-  margin: 15px;
+  /*margin: 15px;*/
+  margin: 15px auto;
   min-height: 380px;
   padding: 0 30px 25px;
   text-align: left;
-  width: 270px;
+  /*width: 270px;*/
+  /* Below 2 updated by Bhavesh */
+  max-width:450px;
+  width:80%;
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
