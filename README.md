@@ -1,4 +1,4 @@
-# Mobile Web Specialist Certification Course
+## Restaurant Reviews Stage 1
 ---
 #### _Three Stage Course Material Project - Restaurant Reviews_
 
