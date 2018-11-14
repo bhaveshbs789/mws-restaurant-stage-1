@@ -1,5 +1,4 @@
-
-let CACHE_NAME = 'restaurant-app-stage-1';
+let CACHE_NAME = 'restaurant-appv1';
 let urlsToCache = [
   './',
   './index.html',
@@ -19,6 +18,7 @@ let urlsToCache = [
   './img/8.jpg',
   './img/9.jpg',
   './img/10.jpg',
+  './restaurant.html/'
 ];
 
 self.addEventListener('install', function(evt){
@@ -53,8 +53,23 @@ self.addEventListener('fetch', function(event) {
     event.respondWith(
         caches.match(event.request)
         .then(function(response){
-          console.log(response);
-          return response || fetch(event.request);
+            if(response){
+                return response;
+                console.log(response);
+            } else {
+                return fetch(event.request)
+                .then(function(response){
+                    const responseToCache = response.clone();
+                    caches.open(CACHE_NAME)
+                    .then(function(cache){
+                        cache.put(event.request, responseToCache);
+                    });
+                    return response;
+                }).catch(function(err){
+                    console.log(err);
+                });
+                    
+                }
         })
       );
 });
