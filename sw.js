@@ -1,6 +1,6 @@
 //console.log('Hi , i am serice worker');
 
-let cacheName = 'restaurant-app-stage-1';
+let CACHE_NAME = 'restaurant-app-stage-1';
 let urlsToCache = [
   './',
   './index.html',
@@ -24,7 +24,7 @@ let urlsToCache = [
 
 self.addEventListener('install', function(evt){
 	evt.waitUntil(
-		caches.open(cacheName)
+		caches.open(CACHE_NAME)
 		.then(function(cache){
 			console.log('Cache Opened');
 			return cache.addAll(urlsToCache);
@@ -32,5 +32,31 @@ self.addEventListener('install', function(evt){
 			console.log(err);
 		})
 	);
+});
+
+// self.addEventListener('activate', function(event) {
+//     event.waitUntil(
+//         caches.keys().then(function(cacheNames) {
+//             return Promise.all(
+//                 cacheNames.filter(function(cacheName) {
+//                     return cacheName.startsWith('restaurant-') &&
+//                         cacheName != CACHE_NAME;
+//                 }).map(function(cacheName) {
+//                     return caches.delete(cacheName);
+//                 })
+//             );
+//         })
+//     );
+// });
+
+
+self.addEventListener('fetch', function(event) {
+    event.respondWith(
+        caches.match(event.request)
+        .then(function(response){
+          console.log(response);
+          return response || fetch(event.request);
+        })
+      );
 });
 
