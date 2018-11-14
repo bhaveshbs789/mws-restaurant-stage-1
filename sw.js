@@ -1,4 +1,3 @@
-//console.log('Hi , i am serice worker');
 
 let CACHE_NAME = 'restaurant-app-stage-1';
 let urlsToCache = [
@@ -19,7 +18,7 @@ let urlsToCache = [
   './img/7.jpg',
   './img/8.jpg',
   './img/9.jpg',
-  './img/10.jpg'
+  './img/10.jpg',
 ];
 
 self.addEventListener('install', function(evt){
